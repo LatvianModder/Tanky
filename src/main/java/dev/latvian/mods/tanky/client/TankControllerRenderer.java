@@ -34,7 +34,7 @@ public class TankControllerRenderer implements BlockEntityRenderer<TankControlle
 		int light = LevelRenderer.getLightColor(entity.getLevel(), entity.tank.getFluid().getFluid().defaultFluidState().createLegacyBlock(), entity.getBlockPos().above());
 
 		FluidStack fluid = entity.tank.getFluid();
-		var renderProperties = ((IClientFluidTypeExtensions)fluid.getFluid().getFluidType().getRenderPropertiesInternal());
+		var renderProperties = IClientFluidTypeExtensions.of(fluid.getFluid().getFluidType());
 
 		VertexConsumer builder = source.getBuffer(RenderType.translucent());
 
